@@ -1,44 +1,44 @@
-# Code structure
+# A kód struktúra
 
-The first thing we'll study is the building blocks of code.
+A legelső dolgok amikről tanulni fogunk, azok a kód alapjai.
 
-## Statements
+## Utasítások
 
-Statements are syntax constructs and commands that perform actions.
+Az utasítások azok szintaktikai struktúrák amelyek parancsokat hajtanak végre.
 
-We've already seen a statement, `alert('Hello, world!')`, which shows the message "Hello, world!".
+Már láttunk egy ilyen utasítást, a(z) `alert('Hello, world!')`-t, ami kiírja, hogy "Hello, world!".
 
-We can have as many statements in our code as we want. Statements can be separated with a semicolon.
+A kódunkba annyi utasítást tehetünk ahányat csak akarunk. Ezeket az utasításokat pontosvesszővel választjuk el egymástól.
 
-For example, here we split "Hello World" into two alerts:
+Ebben a példában a "Hello World" üzenetet 2 külön alert utasításra osztjuk:
 
 ```js run no-beautify
 alert('Hello'); alert('World');
 ```
 
-Usually, statements are written on separate lines to make the code more readable:
+Az utasítások általában külön sorokba írjuk, hogy olvashatóbbak legyenek:
 
 ```js run no-beautify
 alert('Hello');
 alert('World');
 ```
 
-## Semicolons [#semicolon]
+## A pontosvessző [#semicolon]
 
-A semicolon may be omitted in most cases when a line break exists.
+Amennyiben a parancsok külön sorokba vannak osztva, a pontosvessző elhanyagolható.
 
-This would also work:
+Ez a kód blokk is hiba nélkül fog lefutni:
 
 ```js run no-beautify
 alert('Hello')
 alert('World')
 ```
 
-Here, JavaScript interprets the line break as an "implicit" semicolon. This is called an [automatic semicolon insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion).
+Itt a JavaScript az új sorokra egy úgynevezett "láthatatlan pontosvesszőként" tekint. Ezt [automatikus pontosvessző kihejezés](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion)-nek nevezzük.
 
-**In most cases, a newline implies a semicolon. But "in most cases" does not mean "always"!**
+**A leghtöbb esetben egy új sor egy pontosvesszőt jelképez. De a "legtöbb esetben" nem jelenti azt, hogy ez "mindig" így van!**
 
-There are cases when a newline does not mean a semicolon. For example:
+Bizonyos esetekben egy új sor nem egyenlő egy pontosvesszővel. Például:
 
 ```js run no-beautify
 alert(3 +
@@ -46,7 +46,7 @@ alert(3 +
 + 2);
 ```
 
-The code outputs `6` because JavaScript does not insert semicolons here. It is intuitively obvious that if the line ends with a plus `"+"`, then it is an "incomplete expression", so the semicolon is not required. And in this case that works as intended.
+A kód `6`-ot ad vissza, mivel a JavaScript itt nem veszi az új sort pontosvesszőnek. Hiszen, magától adódik, hogy ha a sor egy `"+"` jellel végződik akkor az egy befejeztlen parancs, tehát a pontosvessző nem kell. Ebben az esetben a kód az elvárásoknak megfelelően fog működni.
 
 **But there are situations where JavaScript "fails" to assume a semicolon where it is really needed.**
 
