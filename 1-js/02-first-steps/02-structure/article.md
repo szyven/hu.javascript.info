@@ -1,12 +1,12 @@
 # A kód struktúra
 
-A legelső dolgok amikről tanulni fogunk, azok a kód alapjai.
+A legelső dolgok amikről tanulni fogunk, azok a kódolás építő kövei.
 
 ## Utasítások
 
 Az utasítások azok szintaktikai struktúrák amelyek parancsokat hajtanak végre.
 
-Már láttunk egy ilyen utasítást, a(z) `alert('Hello, world!')`-t, ami kiírja, hogy "Hello, world!".
+Már láttunk egy ilyen utasítást, a(z) `alert('Hello, világ!')`-t, ami egy pop-up-ban kiírja, hogy "Hello, világ!".
 
 A kódunkba annyi utasítást tehetünk ahányat csak akarunk. Ezeket az utasításokat pontosvesszővel választjuk el egymástól.
 
@@ -16,7 +16,7 @@ Ebben a példában a "Hello World" üzenetet 2 külön alert utasításra osztju
 alert('Hello'); alert('World');
 ```
 
-Az utasítások általában külön sorokba írjuk, hogy olvashatóbbak legyenek:
+Az utasítások általában külön sorokba írjuk, hogy könnyebben olvashatók legyenek:
 
 ```js run no-beautify
 alert('Hello');
@@ -48,40 +48,40 @@ alert(3 +
 
 A kód `6`-ot ad vissza, mivel a JavaScript itt nem veszi az új sort pontosvesszőnek. Hiszen, magától adódik, hogy ha a sor egy `"+"` jellel végződik akkor az egy befejeztlen parancs, tehát a pontosvessző nem kell. Ebben az esetben a kód az elvárásoknak megfelelően fog működni.
 
-**But there are situations where JavaScript "fails" to assume a semicolon where it is really needed.**
+**De viszont előfordul, hogy a JavaScriptnek "elfelejt" az új sorokra pontos vesszőként tekinteni**
 
-Errors which occur in such cases are quite hard to find and fix.
+Az ilyen problémák miatt fellépő hibák nagyon zavaróak, tekintve hogy nehéz megtalálni és kijavítani őket.
 
-````smart header="An example of an error"
-If you're curious to see a concrete example of such an error, check this code out:
+````smart header="Példa egy ilyen hibára"
+Ha esetleg kíváncsi vagy, hogy ilyen hibát képező kód blokk hogy néz ki pontosan, akkor itt lenne egy:
 
 ```js run
 [1, 2].forEach(alert)
 ```
 
-No need to think about the meaning of the brackets `[]` and `forEach` yet. We'll study them later. For now, just remember the result of the code: it shows `1` then `2`.
+A szögletes zárójelekkel `[]` és a `forEach`-el egyelőre ne foglalkozz. Arra majd kitérünk később. Egyelőre ennek a kód blokknak az eredményét jegyezzük meg, ami egy `1`-es és egy `2`-es.
 
-Now, let's add an `alert` before the code and *not* finish it with a semicolon:
+Na akkor tegyünk egy `alert` utasítást a sor elejére és **ne** használjunk pontosvesszőt.
 
 ```js run no-beautify
-alert("There will be an error")
+alert("Itt egy hiba lesz!")
 
 [1, 2].forEach(alert)
 ```
 
-Now if we run the code, only the first `alert` is shown and then we have an error!
+Hogyha az előbbi kód blokkot lefutatjuk az eredmény az "Itt egy hiba lesz!" felirat és egy hiba lesz!
 
-But everything is fine again if we add a semicolon after `alert`:
+De ha az `alert` után teszünk pontosvesszőt minden megoldódik:
 ```js run
-alert("All fine now");
+alert("Mostmár minden rendben");
 
 [1, 2].forEach(alert)  
 ```
 
-Now we have the "All fine now" message followed by `1` and `2`.
+Mostmár a "Mostmár minden rendben" üzenetet, majd az `1` és `2` számokat fogjuk kapni eredményül.
 
 
-The error in the no-semicolon variant occurs because JavaScript does not assume a semicolon before square brackets `[...]`.
+Ez a jiba azért történik, mivel a JavaScript sosem tesz szögletes zárójelek `[...]` elé pontosvesszőt automatikusan.
 
 So, because the semicolon is not auto-inserted, the code in the first example is treated as a single statement. Here's how the engine sees it:
 
